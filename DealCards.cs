@@ -12,6 +12,9 @@ namespace Blackjack
         private List<Card> dealerHand;
         private int lastCardIndex = 0;
 
+        public List<Card> GetPlayerHand => playerHand;
+        public List<Card> GetDealerHand => dealerHand;
+
         public DealCards()
         {
             playerHand = new List<Card>();
@@ -29,7 +32,7 @@ namespace Blackjack
             }
         }
 
-        private void DealCard(int cardNum, bool toPlayer)
+        public void DealCard(int cardNum, bool toPlayer)
         {
             if (toPlayer)
             {
@@ -49,7 +52,7 @@ namespace Blackjack
             }
         }
 
-        private int computeCardValue(bool isPlayer)
+        public int computeCardValue(bool isPlayer)
         {
             int sumCardValue = 0;
             if (isPlayer)
