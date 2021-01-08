@@ -26,6 +26,7 @@ namespace Blackjack
             SEVEN,
             EIGHT,
             NINE,
+            TEN,
             KING,
             QUEEN,
             JACK,
