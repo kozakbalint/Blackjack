@@ -59,50 +59,7 @@ namespace Blackjack
             {
                 for (int i = 0; i < playerHand.Count; i++)
                 {
-                    switch (playerHand[i].MyValue)
-                    {
-                        case VALUE.TWO:
-                            sumCardValue += 2;
-                            break;
-                        case VALUE.THREE:
-                            sumCardValue += 3;
-                            break;
-                        case VALUE.FOUR:
-                            sumCardValue += 4;
-                            break;
-                        case VALUE.FIVE:
-                            sumCardValue += 5;
-                            break;
-                        case VALUE.SIX:
-                            sumCardValue += 6;
-                            break;
-                        case VALUE.SEVEN:
-                            sumCardValue += 7;
-                            break;
-                        case VALUE.EIGHT:
-                            sumCardValue += 8;
-                            break;
-                        case VALUE.NINE:
-                            sumCardValue += 9;
-                            break;
-                        case VALUE.TEN:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.KING:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.QUEEN:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.JACK:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.ACE:
-                            sumCardValue += 11;
-                            break;
-                        default:
-                            break;
-                    }
+                    sumCardValue += (int)playerHand[i].MyValue;
                 }
                 return sumCardValue;
             }
@@ -110,50 +67,7 @@ namespace Blackjack
             {
                 for (int i = 0; i < dealerHand.Count; i++)
                 {
-                    switch (dealerHand[i].MyValue)
-                    {
-                        case VALUE.TWO:
-                            sumCardValue += 2;
-                            break;
-                        case VALUE.THREE:
-                            sumCardValue += 3;
-                            break;
-                        case VALUE.FOUR:
-                            sumCardValue += 4;
-                            break;
-                        case VALUE.FIVE:
-                            sumCardValue += 5;
-                            break;
-                        case VALUE.SIX:
-                            sumCardValue += 6;
-                            break;
-                        case VALUE.SEVEN:
-                            sumCardValue += 7;
-                            break;
-                        case VALUE.EIGHT:
-                            sumCardValue += 8;
-                            break;
-                        case VALUE.NINE:
-                            sumCardValue += 9;
-                            break;
-                        case VALUE.TEN:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.KING:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.QUEEN:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.JACK:
-                            sumCardValue += 10;
-                            break;
-                        case VALUE.ACE:
-                            sumCardValue += 11;
-                            break;
-                        default:
-                            break;
-                    }
+                    sumCardValue += (int)dealerHand[i].MyValue;
                 }
                 return sumCardValue;
             }

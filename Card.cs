@@ -18,7 +18,7 @@ namespace Blackjack
 
         public enum VALUE
         {
-            TWO,
+            TWO = 2,
             THREE,
             FOUR,
             FIVE,
@@ -27,10 +27,10 @@ namespace Blackjack
             EIGHT,
             NINE,
             TEN,
-            KING,
-            QUEEN,
-            JACK,
-            ACE
+            KING = 10,
+            QUEEN = 10,
+            JACK = 10,
+            ACE = 11
         }
 
         public SUIT MySuit { get; set; }
