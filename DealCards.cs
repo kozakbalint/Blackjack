@@ -72,7 +72,7 @@ namespace Blackjack
                 {
                     sumCardValue += (int)playerHand[i].MyValue;
                 }
-                if (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 || playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21)
+                if ((playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
                 {
                     return sumCardValue - 10;
                 }
@@ -88,7 +88,7 @@ namespace Blackjack
                 {
                     sumCardValue += (int)dealerHand[i].MyValue;
                 }
-                if (dealerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 || playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21)
+                if ((dealerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
                 {
                     return sumCardValue - 10;
                 }
