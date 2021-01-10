@@ -17,6 +17,7 @@ namespace Blackjack
         }
 
         public Card[] GetDeck => deck;
+        public int GetDeckNumber => NUMBER_OF_CARDS;
 
         public void fillDeck()
         {
