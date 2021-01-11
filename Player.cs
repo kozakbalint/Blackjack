@@ -10,15 +10,18 @@ namespace Blackjack
     {
         private string name;
         private int balance;
+        private List<Result> results = new List<Result>();
 
-        public Player(int balance)
+        public Player()
         {
-            this.balance = balance;
+            balance = 1000;
         }
 
         public string GetName => name;
         public int GetBalance => balance;
         public string SetName { set => name = value; }
-        public string SetBalance { set => balance = Int32.Parse(value); }
+        public int SetBalance { set => balance = value; }
+        public Result SetResult { set => results.Add(value); }
+        public void ClearResult() => results.Clear(); 
     }
 }
