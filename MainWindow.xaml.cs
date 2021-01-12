@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -226,6 +227,38 @@ namespace Blackjack
             Result entry = new Result(msg, deal.GetPlayerHand, deal.GetPlayerHand);
             player.SetResult = entry;
             history.Items.Add($"{msg}");
+        }
+
+        private void SaveProfile(object sender, RoutedEventArgs e)
+        {
+            string name = player.GetName;
+            StreamWriter sw = new StreamWriter($"{name}.txt", false);
+            sw.WriteLine($"{name};{player.GetBalance}");
+            foreach (var item in player.GetResults)
+            {
+                sw.WriteLine(item.GetOutcome);
+            }
+            sw.Close();
+        }
+        private void LoadProfile(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string name = loadNameInput.Text;
+                StreamReader sr = new StreamReader($"{name}.txt");
+                string[] nameAndBal = sr.ReadLine().Split(';');
+                playerNameInput.Text = nameAndBal[0];
+                balanceInput.Text = nameAndBal[1];
+                history.Items.Clear();
+                while (!sr.EndOfStream)
+                {
+                    history.Items.Add($"{sr.ReadLine()}");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ez a profil nem létezik");
+            }
         }
     }
 }
