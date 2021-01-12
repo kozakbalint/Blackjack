@@ -19,6 +19,7 @@ namespace Blackjack
 
         public string GetName => name;
         public int GetBalance => balance;
+        public List<Result> GetResults => results;
         public string SetName { set => name = value; }
         public int SetBalance { set => balance = value; }
         public Result SetResult { set => results.Add(value); }

@@ -18,5 +18,7 @@ namespace Blackjack
             this.playerHand = playerHand;
             this.dealerHand = dealerHand;
         }
+
+        public string GetOutcome => outcome;
     }
 }
