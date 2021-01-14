@@ -65,39 +65,45 @@ namespace Blackjack
 
         public int calculateCardValue(bool isPlayer)
         {
-            int sumCardValue = 0;
-            if (isPlayer)
+            try
             {
-                for (int i = 0; i < playerHand.Count; i++)
+                int sumCardValue = 0;
+                if (isPlayer)
                 {
-                    sumCardValue += (int)playerHand[i].MyValue;
-                }
-                if ((playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
-                {
-                    return sumCardValue - 10;
-                }
-                else
-                {
-                    return sumCardValue;
-                }
+                    for (int i = 0; i < playerHand.Count; i++)
+                    {
+                        sumCardValue += (int)playerHand[i].MyValue;
+                    }
+                    if ((playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
+                    {
+                        return sumCardValue - 10;
+                    }
+                    else
+                    {
+                        return sumCardValue;
+                    }
 
-            }
-            else
-            {
-                for (int i = 0; i < dealerHand.Count; i++)
-                {
-                    sumCardValue += (int)dealerHand[i].MyValue;
-                }
-                if ((dealerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (playerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
-                {
-                    return sumCardValue - 10;
                 }
                 else
                 {
-                    return sumCardValue;
+                    for (int i = 0; i < dealerHand.Count; i++)
+                    {
+                        sumCardValue += (int)dealerHand[i].MyValue;
+                    }
+                    if ((dealerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 1 && sumCardValue > 21) || (dealerHand.Where(x => x.MyValue == VALUE.ACE).Count() == 2 && sumCardValue > 21))
+                    {
+                        return sumCardValue - 10;
+                    }
+                    else
+                    {
+                        return sumCardValue;
+                    }
                 }
             }
-            
+            catch (Exception)
+            {
+                return -1;
+            }
         }
     }
 }

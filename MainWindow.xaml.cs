@@ -116,7 +116,13 @@ namespace Blackjack
             int dealerValue = deal.calculateCardValue(false);
             List<Card> playerHand = deal.GetPlayerHand;
             List<Card> dealerHand = deal.GetDealerHand;
-
+            if (playerValue == -1 || dealerValue == -1)
+            {
+                string msg = "Error. You got your bet back.";
+                output.Content = $"Output: {msg}";
+                player.SetBalance = player.GetBalance + bet;
+                resetDeal();
+            }
             if (playerValue > 21)
             {
                 string msg = "You busted. Dealer won.";
